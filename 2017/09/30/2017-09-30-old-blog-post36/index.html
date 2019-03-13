@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>프로토콜(Protocol)의 종류 | Yeop&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content>
+    
+    <meta name="description" content="프로토콜 통신규약이라는 뜻.. 이런이런방식으로 대화하자는 약속..대화방법..  DHCP(Dynamic Host Configuration Protocol)다이나믹 호스트 컨피규어 프로토콜사용자가 많은 환경에서 자동으로 ip를 할당해주어 관리를 편하게 해주며ip한계를 도와주는 프로토콜영구적인 IP 주소를 필요로 하는 웹서버에 대해서는 정적인 주소를 제공한다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="프로토콜(Protocol)의 종류">
+<meta property="og:url" content="https://yeop-blog.github.io/2017/09/30/2017-09-30-old-blog-post36/index.html">
+<meta property="og:site_name" content="Yeop&#39;s Blog">
+<meta property="og:description" content="프로토콜 통신규약이라는 뜻.. 이런이런방식으로 대화하자는 약속..대화방법..  DHCP(Dynamic Host Configuration Protocol)다이나믹 호스트 컨피규어 프로토콜사용자가 많은 환경에서 자동으로 ip를 할당해주어 관리를 편하게 해주며ip한계를 도와주는 프로토콜영구적인 IP 주소를 필요로 하는 웹서버에 대해서는 정적인 주소를 제공한다.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://yeop-blog.github.io/images/lang_thumbnail.jpg">
+<meta property="og:updated_time" content="2019-03-11T16:00:32.469Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="프로토콜(Protocol)의 종류">
+<meta name="twitter:description" content="프로토콜 통신규약이라는 뜻.. 이런이런방식으로 대화하자는 약속..대화방법..  DHCP(Dynamic Host Configuration Protocol)다이나믹 호스트 컨피규어 프로토콜사용자가 많은 환경에서 자동으로 ip를 할당해주어 관리를 편하게 해주며ip한계를 도와주는 프로토콜영구적인 IP 주소를 필요로 하는 웹서버에 대해서는 정적인 주소를 제공한다.">
+<meta name="twitter:image" content="https://yeop-blog.github.io/images/lang_thumbnail.jpg">
+    
+
+    
+        <link rel="alternate" href="https://yeop-blog.github.io/atom.xml" title="Yeop&#39;s Blog" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Life And Web IT Trend Written Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="http://yeop.net/">About</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Ani/">Ani</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/">DB</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/Etc/">Etc</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/MSSQL/">MSSQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/MySQL/">MySQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/Oracle/">Oracle</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Framework/">Framework</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Framework/Spring/">Spring</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Framework/iBatis/">iBatis</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/">Language</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/HTML/">HTML</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/JSP/">JSP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/JavaScript/">JavaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Doodle/">Doodle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Game-s/">Game's</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Goal/">Goal</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Health/">Health</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/IDE-s/">IDE's</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Server/">Server</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Server/Apache-Tomcat/">Apache/Tomcat</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Study/">Study</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tip-s/">Tip's</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Language/">Language</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2017-09-30-old-blog-post36" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        프로토콜(Protocol)의 종류
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/09/30/2017-09-30-old-blog-post36/" class="article-date">
+            <time datetime="2017-09-30T11:44:00.000Z" itemprop="datePublished">2017-09-30</time>
+        </a>
+    </div>
+
+		
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h5 id="프로토콜"><a href="#프로토콜" class="headerlink" title="프로토콜"></a>프로토콜</h5><ul>
+<li><p>통신규약이라는 뜻.. 이런이런방식으로 대화하자는 약속..대화방법..</p>
+</li>
+<li><p><strong>DHCP</strong>(Dynamic Host Configuration Protocol)<br>다이나믹 호스트 컨피규어 프로토콜<br>사용자가 많은 환경에서 자동으로 ip를 할당해주어 관리를 편하게 해주며<br>ip한계를 도와주는 프로토콜<br>영구적인 IP 주소를 필요로 하는 웹서버에 대해서는 정적인 주소를 제공한다.</p>
+</li>
+<li><p><strong>SSL</strong>(Secure Socket Layer)<br>시큐어 소켓 레이어<br>네트워크 내에서 메시지 전송의 안전을 관리하기 위해 만들어진 프로그램 계층.<br>전자상거래 등의 보안을 위해 개발되었다.</p>
+</li>
+<li><p><strong>TLS</strong>(Transport Layer Security)<br>트랜스포트 레이어 시큐어리티<br><strong>SSL</strong>의 뒤를 잇는 표준.</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>HTTP</strong>(<strong>H</strong>yper<strong>T</strong>ext <strong>Transfer Protocol</strong>) : 사용포트 <strong>80</strong><br>하이퍼텍스트 트랜스퍼 프로토콜….<br><strong>웹(인터넷)</strong>상에서 정보를 주고받기 위한 프로토콜(대화방법).</p>
+</li>
+<li><p><strong>HTTPS</strong>(<strong>S</strong>ecure <strong>H</strong>yper<strong>T</strong>ext <strong>Transfer Protocol</strong>): 사용포트 <strong>443</strong><br>시큐어 하이퍼텍스트 트랜스퍼 프로토콜<br>소켓 통신에서 일반 텍스트를 이용하는 대신에, <strong>SSL</strong>이나 <strong>TLS</strong> 프로토콜을 통해 세션 데이터를 암호화한다.<br>따라서 데이터의 적절한 보호를 보장한다.<br>전자상거래에 널리 쓰인다.</p>
+</li>
+<li><p><strong>FTP</strong>(<span style="color: #009e25; font-weight: bold;">File Transfer Protocol</span>) : 사용포트 <strong>21</strong><br>파일 트랜스퍼 프로토콜…..<br>파일 업로드 다운로드를 목적으로 하는 프로토콜(대화방법).</p>
+</li>
+<li><p><span style="color: #ef007c; font-weight: bold;">S</span><strong>FTP</strong>(<strong>S</strong>ecure <span style="color: #009e25; font-weight: bold;">File Transfer Protocol</span>): 사용포트 <strong>22</strong><br>시큐어 파일 트랜스퍼 프로토콜…..<br>보안FTP…..일반적인 FTP와 달리 데이터 전송시 암호화 하는 프로토콜(대화방법).</p>
+</li>
+<li><p><span style="color: #ef007c; font-weight: bold;">T</span><strong>FTP</strong>(<strong>T</strong>rivial <span style="color: #009e25; font-weight: bold;">File Transfer Protocol</span>): 연결포트는 <strong>UDP 69</strong>, 데이터 전송은 <strong>UDP 1390</strong><br>트리비얼 파일 트랜스퍼 프로토콜…..<br>하찮은FTP…..-_-;;;; 왜냐…. FTP보다 기능이 조금 덜해서…..<br>디렉토리를 보여주지 않아도 되는곳에 사용….. ㅋㅋㅋ 하찮은 녀석…..</p>
+</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://yeop-blog.github.io/2017/09/30/2017-09-30-old-blog-post36/" data-id="cjt7cw3050028pol8aljd5f24" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Yeop&#39;s"
+        },
+        "headline": "프로토콜(Protocol)의 종류",
+        "image": "https://yeop-blog.github.io/images/lang_thumbnail.jpg",
+        "keywords": "",
+        "genre": "Language",
+        "datePublished": "2017-09-30",
+        "dateCreated": "2017-09-30",
+        "dateModified": "2019-03-12",
+        "url": "https://yeop-blog.github.io/2017/09/30/2017-09-30-old-blog-post36/",
+        "description": "프로토콜
+통신규약이라는 뜻.. 이런이런방식으로 대화하자는 약속..대화방법..
+
+DHCP(Dynamic Host Configuration Protocol)다이나믹 호스트 컨피규어 프로토콜사용자가 많은 환경에서 자동으로 ip를 할당해주어 관리를 편하게 해주며ip한계를 도와주는 프로토콜영구적인 IP 주소를 필요로 하는 웹서버에 대해서는 정적인 주소를 제공한다.
+"
+        "wordCount": 167
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/sungyeop.jung" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/sungyeopjung/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/seirian" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="https://yeop-blog.github.io/atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/09/30/2017-09-30-old-blog-post37/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            윈도우7 관리자권한 묻지 않게 하기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/09/30/2017-09-30-old-blog-post35/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">윈도우 탐색기에서 우측 클릭으로 바로 cmd창 실행하기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post99/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/tip_thumbnail.jpg)" alt="ssh서버가 비밀번호를 거부했습니다. 다시 시도하십시오." class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tip-s/">Tip's</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post99/" class="title">ssh서버가 비밀번호를 거부했습니다. 다시 시도하십시오.</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:22:18.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post98/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/mssql_thumbnail.jpg)" alt="MSSQL IDENTITY값(시퀀스) 초기화" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DB/">DB</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DB/MSSQL/">MSSQL</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post98/" class="title">MSSQL IDENTITY값(시퀀스) 초기화</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:16:09.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post97/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/javascript_thumbnail.jpg)" alt="window.onload 대신 사용 가능한 jQuery, javascript 함수" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post97/" class="title">window.onload 대신 사용 가능한 jQuery, javascript 함수</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:12:07.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post96/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/tip_thumbnail.jpg)" alt="Windows 에서도 tail 명령어를!!" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tip-s/">Tip's</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post96/" class="title">Windows 에서도 tail 명령어를!!</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:08:58.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post95/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/lang_thumbnail.jpg)" alt="input 필드에 숫자만 입력받기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/HTML/">HTML</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post95/" class="title">input 필드에 숫자만 입력받기</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:06:10.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Ani/">Ani</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DB/Etc/">Etc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/MSSQL/">MSSQL</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/MySQL/">MySQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/Oracle/">Oracle</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Framework/">Framework</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Framework/Spring/">Spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Framework/iBatis/">iBatis</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/HTML/">HTML</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/JSP/">JSP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/JavaScript/">JavaScript</a><span class="category-list-count">17</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Doodle/">Doodle</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Game-s/">Game's</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Goal/">Goal</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Health/">Health</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/IDE-s/">IDE's</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server/">Server</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server/Apache-Tomcat/">Apache/Tomcat</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tip-s/">Tip's</a><span class="category-list-count">23</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">58</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">42</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Yeop&#39;s</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://yeop-blog.github.io/2017/09/30/2017-09-30-old-blog-post36/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

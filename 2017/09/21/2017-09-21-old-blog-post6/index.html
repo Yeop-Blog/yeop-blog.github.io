@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>1. Servlet | Yeop&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content>
+    
+    <meta name="description" content="1장. 서블릿과 JSP는 어디에 쓰이는 것인지 알아보자. 웹 서버 : 클라이언트로부터 요청을 받아 요청한 것을 넘겨주는 역할 클라이언트 : 사용자가 서버에 요청을 보낼 수 있는 기능을 제공할 뿐더러 서버가 보내온 요청의 결과를 화면에 출력하는 역할까지 담당. HTTP : Hyper Text Transfer Protocol. TCP/IP 기반에서 요청,응답(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1. Servlet">
+<meta property="og:url" content="https://yeop-blog.github.io/2017/09/21/2017-09-21-old-blog-post6/index.html">
+<meta property="og:site_name" content="Yeop&#39;s Blog">
+<meta property="og:description" content="1장. 서블릿과 JSP는 어디에 쓰이는 것인지 알아보자. 웹 서버 : 클라이언트로부터 요청을 받아 요청한 것을 넘겨주는 역할 클라이언트 : 사용자가 서버에 요청을 보낼 수 있는 기능을 제공할 뿐더러 서버가 보내온 요청의 결과를 화면에 출력하는 역할까지 담당. HTTP : Hyper Text Transfer Protocol. TCP/IP 기반에서 요청,응답(">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://yeop-blog.github.io/images/java_thumbnail.jpg">
+<meta property="og:updated_time" content="2019-03-11T16:00:32.453Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1. Servlet">
+<meta name="twitter:description" content="1장. 서블릿과 JSP는 어디에 쓰이는 것인지 알아보자. 웹 서버 : 클라이언트로부터 요청을 받아 요청한 것을 넘겨주는 역할 클라이언트 : 사용자가 서버에 요청을 보낼 수 있는 기능을 제공할 뿐더러 서버가 보내온 요청의 결과를 화면에 출력하는 역할까지 담당. HTTP : Hyper Text Transfer Protocol. TCP/IP 기반에서 요청,응답(">
+<meta name="twitter:image" content="https://yeop-blog.github.io/images/java_thumbnail.jpg">
+    
+
+    
+        <link rel="alternate" href="https://yeop-blog.github.io/atom.xml" title="Yeop&#39;s Blog" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Life And Web IT Trend Written Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="http://yeop.net/">About</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Ani/">Ani</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/">DB</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/Etc/">Etc</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/MSSQL/">MSSQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/MySQL/">MySQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/Oracle/">Oracle</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Framework/">Framework</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Framework/Spring/">Spring</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Framework/iBatis/">iBatis</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/">Language</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/HTML/">HTML</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/JSP/">JSP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/JavaScript/">JavaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Doodle/">Doodle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Game-s/">Game's</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Goal/">Goal</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Health/">Health</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/IDE-s/">IDE's</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Server/">Server</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Server/Apache-Tomcat/">Apache/Tomcat</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Study/">Study</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tip-s/">Tip's</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Language/Java/">Java</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2017-09-21-old-blog-post6" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        1. Servlet
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/09/21/2017-09-21-old-blog-post6/" class="article-date">
+            <time datetime="2017-09-21T12:06:05.000Z" itemprop="datePublished">2017-09-21</time>
+        </a>
+    </div>
+
+		
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h5 id="1장-서블릿과-JSP는-어디에-쓰이는-것인지-알아보자"><a href="#1장-서블릿과-JSP는-어디에-쓰이는-것인지-알아보자" class="headerlink" title="1장. 서블릿과 JSP는 어디에 쓰이는 것인지 알아보자."></a>1장. 서블릿과 JSP는 어디에 쓰이는 것인지 알아보자.</h5><ul>
+<li>웹 서버 : 클라이언트로부터 요청을 받아 요청한 것을 넘겨주는 역할</li>
+<li>클라이언트 : 사용자가 서버에 요청을 보낼 수 있는 기능을 제공할 뿐더러 서버가 보내온 요청의 결과를 화면에 출력하는 역할까지 담당.</li>
+<li>HTTP : Hyper Text Transfer Protocol. TCP/IP 기반에서 요청,응답(Request/Response)을 전송하는 프로토콜</li>
+<li>HTML : HyperText Markup Language.</li>
+<li>단순한 요청은 GET, 사용자가 입력한 정보를 함께 보내려면 POST로 보내라.</li>
+<li>URL : Uniform Resource Locators<br>http:// –&gt; 프로토콜<br><a href="http://www.wickedlysmart.com:80/" target="_blank" rel="noopener">www.wickedlysmart.com:80/</a> –&gt; 서버, IP주소<br>beeradvice/select/ –&gt; 서버에서 자원 위치<br>beer1.html –&gt; 자원  </li>
+<li>뒤에 포트 숫자의 경우 고정적으로 쓰이는 부분이 있다.<br>21 : FTP / 23 : Telnet / 25 : SMTP / 37 : Time / 80 : HTTP / 110 : POP3 / 443 : HTTPS</li>
+<li>CGI : Common Gateway Interface<br>사용자가 서버에게 웹페이지를 통한 요청이 있었을 때, 그것이 응용프로그램에 의해 처리 될 필요가 있다면 서버가 응용프로그램을 실행시키고 필요한 메시지를 받는다. 이 때 서버와 응용프로그램 사이에 데이터를 주고 받기 위한 표준화된 방법을 CGI라고 한다. (네이버 백과사전 참고)  </li>
+<li>Servlet<br>서버에서 수행되는 소형 프로그램. 일반적으로 서버에 존재하며 사용자 입력에 의해 데이터베이스에 접근하는 프로그램은 공통 게이트웨이 인터페이스(CGI) 프로그램을 사용해 수행되는데, 자바 서버 프로그램은 자바 프로그래밍 언어로 수행된다. CGI 프로그램보다 수행 속도가 빠르고, 프로그램 프로세스가 생성되는 것이 아니라 각 사용자 요청이 상주 프로그램(daemon)의 하나의 스레드(thread)로 수행된다. 추가(add-on) 모듈로 된 자바 서블릿은 넷스케이프 엔터프라이즈와 인터넷 정보 서버(IIS), 아파치 서버에서 수행된다. (네이버 백과사전 참고)  </li>
+<li>Servlet 안에 모든걸 다 넣기에는 무모한 면이 있기에 그 부분을 해결하기 위한 방법으로 JSP를 사용.  </li>
+<li>JSP는 HTML안에 자바를 넣을 수 없을까라는 고민에서 탄생.  </li>
+</ul>
+<h5 id="2장-웹-어플리케이션-구조"><a href="#2장-웹-어플리케이션-구조" class="headerlink" title="2장. 웹 어플리케이션 구조"></a>2장. 웹 어플리케이션 구조</h5><ul>
+<li>컨테이너가 주는 혜택 : 통신(커뮤니케이션) 지원, 생명주기 관리, 멀티스레딩 지원, 보안이 유용, JSP 지원</li>
+<li>컨테이너가 돌아가는 방식<br>1) 사용자가 링크를 클릭합니다.<br>2) 서블릿은 HttpServletRequest, HttpServletResponse 객체를 생성합니다.<br>3) 어떤 요청인지 분석하여 알아내고 그에 맞춰서 service() 메소드를 호출, do Get()/do Post() 둘 중 하나를 결정합니다.<br>4) doGet()/doPost() 중 하나를 생성후 Response 객체에 실어 컨테이너에 보냅니다.<br>5) 스레드 작업이 마치면 Request와 Reponse객체를 소멸시킵니다.  </li>
+<li>배포 서술자(Deployment Descriptor)라는 XML파일에서 서블릿과 URL을 서로 매핑이 가능하다.</li>
+<li>서블릿 &gt; 서블릿 + JSP &gt; 서블릿 + JSP + Model = MVC패턴(Model+View+Controller)</li>
+</ul>
+<h5 id="3장-초-간단-미니-MVC-튜토리얼"><a href="#3장-초-간단-미니-MVC-튜토리얼" class="headerlink" title="3장. 초 간단 미니 MVC 튜토리얼"></a>3장. 초 간단 미니 MVC 튜토리얼</h5><ul>
+<li>예제를 통해 서블릿을 구현해보는 부분이므로 패스.</li>
+</ul>
+<h5 id="4장-서블릿이-되어-보자"><a href="#4장-서블릿이-되어-보자" class="headerlink" title="4장. 서블릿이 되어 보자"></a>4장. 서블릿이 되어 보자</h5><ul>
+<li>서블릿의 주기 : 클래스 로딩 -&gt; 생성자 실행 -&gt; init() -&gt; service() -&gt;  destory()</li>
+<li>init() : 서블릿 인스턴스 생성뒤 바로 호출. service() 메소드 전에 실행. 딱 한번만 실행.</li>
+<li>service() : 클라이언트의 요청을 받았을때.</li>
+<li>destory() : 서블릿이 죽기 전에 실행. 딱 한번만 실행.</li>
+<li>서블릿 초기화  <ol>
+<li>ServletConfig 객체 : 서블릿당 하나, ServletContext에 접근하기 위해 사용, 파라미터값은 DD에서 설정 가능.  </li>
+<li>ServletContext 객체 : 웹 애플리케이션당 하나, 웹 앱의 파라미터값을 읽어오기 위해 사용, 서버정보를 파악하기 위해 사용.  </li>
+</ol>
+</li>
+<li>GET : URL로 자원 또는 파일을 달라고 요청.</li>
+<li>POST : Request에 첨부한 몸체 정보를 서버로 보내, 요청한 URL로 정보를 요구. 부가정보를 가진 GET과 비슷.</li>
+<li>HTTP 스펙 1.1 에서는 GET, HEAD, PUT은 멱등이라고 정의.</li>
+<li>method=”POST”라고 코딩하지 않을 경우 기본은 GET이다.</li>
+<li>Request 객체에서 파라미터를 뽑아 내기 위해 getParameter(“파라미터 이름”) 메소드를 호출, 리턴값은 String.</li>
+<li>파라미터 값이 여러개인 경우에는 getParameterValues(“파라미터 이름”) 메소드를 사용, 리턴값을 String[].</li>
+<li>Response는 리다이렉트(Redirect)와 디스패치(Dispatch)로 구분이 된다.</li>
+<li>Redirect : 요청을 완전히 다른 URL로 방향을 바꿀 수 있다. 즉, 주소가 바뀐다.</li>
+<li>Dispatch : 웹 애플리케이션에 있는 다른 컴포넌트(JSP)에게 처리를 위임. 주소가 바뀌지 않는다.</li>
+<li>sendRedirect : session 정보를 유지한채로 Redirect하는 것. Response한 후에는 할 수가 없다. 매개변수로 URL객체가 아닌 String 객체를 받음.</li>
+</ul>
+<h5 id="5장-웹-애플리케이션"><a href="#5장-웹-애플리케이션" class="headerlink" title="5장. 웹 애플리케이션"></a>5장. 웹 애플리케이션</h5><ul>
+<li>서블릿 초기화 된 다음에 서블릿 초기화 파라미터를 사용할 수 있다. ex)ServletConfig</li>
+<li>컨테이너는 서블릿을 초기화 할때 ‘단 한번만’ 초기화 파라미터를 읽습니다.</li>
+<li>초기화 파라미터는 컨텍스트 초기화 파라미터가 유용하다. ex)context-param</li>
+<li>초기화 파라미터 = 정해진 상수라고 생각하는것이 좋다.</li>
+<li>초기화 파라미터를 저장하기 위해서 리스터를 구현하여 사용. 리스너가 아니면 String밖에 저장이 안됨.</li>
+<li>리스너 작성 및 사용 : 리스너 클래스 생성 -&gt; 클래스 배포 -&gt; 배포 서술자에 항목 추가</li>
+<li>속성(Attribute)과 파라미터는 엄연히 다르다. 가장 큰 차이점은 리턴타입이 속성은 Object이고, 파라미터는 String이다. 그 외에 대한 차이점은 Headfirst P220쪽 참고!</li>
+<li>3가지 생존범위 : Context, Request, Session + @로 Page까지 있음.</li>
+<li>Context는 누구나 접근이 가능하다.</li>
+<li>Request는 Garbage 통해서 접근후 response 처리후 날라감, 즉 초기화 됨.</li>
+<li>Session은 나만 접근, 즉 특정 HttpSession에 접근 권한을 가진 녀석만 접근이 가능.</li>
+</ul>
+<h5 id="6장-대화-상태-유지하기"><a href="#6장-대화-상태-유지하기" class="headerlink" title="6장. 대화 상태 유지하기."></a>6장. 대화 상태 유지하기.</h5><ul>
+<li>직접 적인 Session과 기타 리스너등에 대한 내용. 정리보단 이 장은 필요시 책을 한번 더 살펴보는게 나을듯.</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://yeop-blog.github.io/2017/09/21/2017-09-21-old-blog-post6/" data-id="cjt7cw2zd0010pol87g9amssq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Yeop&#39;s"
+        },
+        "headline": "1. Servlet",
+        "image": "https://yeop-blog.github.io/images/java_thumbnail.jpg",
+        "keywords": "",
+        "genre": "Language Java",
+        "datePublished": "2017-09-21",
+        "dateCreated": "2017-09-21",
+        "dateModified": "2019-03-12",
+        "url": "https://yeop-blog.github.io/2017/09/21/2017-09-21-old-blog-post6/",
+        "description": "1장. 서블릿과 JSP는 어디에 쓰이는 것인지 알아보자.
+웹 서버 : 클라이언트로부터 요청을 받아 요청한 것을 넘겨주는 역할
+클라이언트 : 사용자가 서버에 요청을 보낼 수 있는 기능을 제공할 뿐더러 서버가 보내온 요청의 결과를 화면에 출력하는 역할까지 담당.
+HTTP : Hyper Text Transfer Protocol. TCP/IP 기반에서 요청,응답("
+        "wordCount": 673
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/sungyeop.jung" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/sungyeopjung/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/seirian" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="https://yeop-blog.github.io/atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/09/21/2017-09-21-old-blog-post7/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            2. JSP
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/09/21/2017-09-21-old-blog-post5/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">String하고 String Buffer의 차이점</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post99/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/tip_thumbnail.jpg)" alt="ssh서버가 비밀번호를 거부했습니다. 다시 시도하십시오." class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tip-s/">Tip's</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post99/" class="title">ssh서버가 비밀번호를 거부했습니다. 다시 시도하십시오.</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:22:18.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post98/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/mssql_thumbnail.jpg)" alt="MSSQL IDENTITY값(시퀀스) 초기화" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DB/">DB</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DB/MSSQL/">MSSQL</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post98/" class="title">MSSQL IDENTITY값(시퀀스) 초기화</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:16:09.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post97/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/javascript_thumbnail.jpg)" alt="window.onload 대신 사용 가능한 jQuery, javascript 함수" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post97/" class="title">window.onload 대신 사용 가능한 jQuery, javascript 함수</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:12:07.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post96/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/tip_thumbnail.jpg)" alt="Windows 에서도 tail 명령어를!!" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tip-s/">Tip's</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post96/" class="title">Windows 에서도 tail 명령어를!!</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:08:58.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post95/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/lang_thumbnail.jpg)" alt="input 필드에 숫자만 입력받기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/HTML/">HTML</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post95/" class="title">input 필드에 숫자만 입력받기</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:06:10.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Ani/">Ani</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DB/Etc/">Etc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/MSSQL/">MSSQL</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/MySQL/">MySQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/Oracle/">Oracle</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Framework/">Framework</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Framework/Spring/">Spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Framework/iBatis/">iBatis</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/HTML/">HTML</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/JSP/">JSP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/JavaScript/">JavaScript</a><span class="category-list-count">17</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Doodle/">Doodle</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Game-s/">Game's</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Goal/">Goal</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Health/">Health</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/IDE-s/">IDE's</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server/">Server</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server/Apache-Tomcat/">Apache/Tomcat</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tip-s/">Tip's</a><span class="category-list-count">23</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">58</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">42</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Yeop&#39;s</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://yeop-blog.github.io/2017/09/21/2017-09-21-old-blog-post6/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

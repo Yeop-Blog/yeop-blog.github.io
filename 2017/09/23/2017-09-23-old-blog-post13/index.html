@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>4장. 문자, 숫자, 날짜 다루기 | Yeop&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content>
+    
+    <meta name="description" content="문자열의 대,소문자 바꾸는 메소드  문자열을 소문자에서 대문자로 바꾸고 싶은 경우 : .toUpperCase(); 문자열을 대문자에서 소문자로 바꾸고 싶은 경우 : .toLowerCase();  1answer.toLowerCase();    문자열을 검색하고 싶은 경우 .indexOf(‘찾는 문자열’) 메소드를 사용한다.   1browser.indexOf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4장. 문자, 숫자, 날짜 다루기">
+<meta property="og:url" content="https://yeop-blog.github.io/2017/09/23/2017-09-23-old-blog-post13/index.html">
+<meta property="og:site_name" content="Yeop&#39;s Blog">
+<meta property="og:description" content="문자열의 대,소문자 바꾸는 메소드  문자열을 소문자에서 대문자로 바꾸고 싶은 경우 : .toUpperCase(); 문자열을 대문자에서 소문자로 바꾸고 싶은 경우 : .toLowerCase();  1answer.toLowerCase();    문자열을 검색하고 싶은 경우 .indexOf(‘찾는 문자열’) 메소드를 사용한다.   1browser.indexOf">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://yeop-blog.github.io/images/javascript_thumbnail.jpg">
+<meta property="og:updated_time" content="2019-03-11T16:00:32.453Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="4장. 문자, 숫자, 날짜 다루기">
+<meta name="twitter:description" content="문자열의 대,소문자 바꾸는 메소드  문자열을 소문자에서 대문자로 바꾸고 싶은 경우 : .toUpperCase(); 문자열을 대문자에서 소문자로 바꾸고 싶은 경우 : .toLowerCase();  1answer.toLowerCase();    문자열을 검색하고 싶은 경우 .indexOf(‘찾는 문자열’) 메소드를 사용한다.   1browser.indexOf">
+<meta name="twitter:image" content="https://yeop-blog.github.io/images/javascript_thumbnail.jpg">
+    
+
+    
+        <link rel="alternate" href="https://yeop-blog.github.io/atom.xml" title="Yeop&#39;s Blog" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Life And Web IT Trend Written Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="http://yeop.net/">About</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Ani/">Ani</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/">DB</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/Etc/">Etc</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/MSSQL/">MSSQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/MySQL/">MySQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/Oracle/">Oracle</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Framework/">Framework</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Framework/Spring/">Spring</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Framework/iBatis/">iBatis</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/">Language</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/HTML/">HTML</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/JSP/">JSP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/JavaScript/">JavaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Doodle/">Doodle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Game-s/">Game's</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Goal/">Goal</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Health/">Health</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/IDE-s/">IDE's</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Server/">Server</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Server/Apache-Tomcat/">Apache/Tomcat</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Study/">Study</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tip-s/">Tip's</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Language/JavaScript/">JavaScript</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2017-09-23-old-blog-post13" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        4장. 문자, 숫자, 날짜 다루기
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/09/23/2017-09-23-old-blog-post13/" class="article-date">
+            <time datetime="2017-09-23T12:00:23.000Z" itemprop="datePublished">2017-09-23</time>
+        </a>
+    </div>
+
+		
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <ol>
+<li><p>문자열의 대,소문자 바꾸는 메소드</p>
+<ul>
+<li>문자열을 <strong>소문자에서 대문자</strong>로 바꾸고 싶은 경우 : <strong>.toUpperCase();</strong></li>
+<li>문자열을 <strong>대문자에서 소문자</strong>로 바꾸고 싶은 경우 : <strong>.toLowerCase();</strong>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">answer.toLowerCase();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>문자열을 검색</strong>하고 싶은 경우 <strong>.indexOf(‘찾는 문자열’)</strong> 메소드를 사용한다.  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">browser.indexOf(<span class="string">'MSIE'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>문자열의 일부</strong>를 떼어내려면 <strong>slice()</strong> 메소드를 사용한다.  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">var</span> url = <span class="string">'http://www.sawmac.com'</span>;</span><br><span class="line">url.slice(<span class="number">7</span>); ==== 실행후 ====&gt; www.sawmac.com</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>문자열의 패턴</strong>을 찾으려면 <strong>정규표현식(regular expression)</strong>을 알아야 한다.<br>&lt; 자바스크립트 책 P150 ~ 168까지 참고할것 &gt;</p>
+</li>
+<li><p><strong>문자열을 숫자로 변환</strong>하는 방법에는 다음과 같은 방법이 있다.  </p>
+<ul>
+<li><p><strong>Number()</strong> : 전달된 문자열을 숫자로 변환</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'3'</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="string">'4'</span>;</span><br><span class="line"><span class="keyword">var</span> total = <span class="built_in">Number</span>(a) + <span class="built_in">Number</span>(b); <span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>parseInt()</strong> : 텍스트를 포함하고 있으면 그 부분은 제외하고 숫자로 변환  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> age = <span class="string">'20살'</span>;</span><br><span class="line">age = <span class="built_in">parseInt</span>(age, <span class="number">10</span>); <span class="comment">// 20</span></span><br><span class="line"><span class="comment">//여기서 age 콤마 뒤에 10은 10진수로 변환한다는 것을 의미한다.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>parseFloat()</strong> : parseInt()와 비슷하지만, 소수점을 포함한 문자열에 사용할 수 있다  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> space = <span class="string">'4.5제곱미터'</span>;</span><br><span class="line">space = <span class="built_in">parseFloat</span>(space); <span class="comment">// 4.5</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>숫자인지 확인</strong>을 하려면 전에 앞서 언급했던 <strong>isNaN()</strong> 메소드를 사용한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="string">'10'</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">isNaN</span>(x))&#123;</span><br><span class="line">      <span class="comment">//숫자가 아닐 때</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">//숫자일 때</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>반올림</strong>을 해야 하는 경우에는 <strong>round()</strong> 메소드를 사용한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">10.25</span>;</span><br><span class="line"><span class="keyword">var</span> roundNum = <span class="built_in">Math</span>.round(num); <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>올림</strong>을 해야 하는 경우에는 <strong>ceil()</strong>, <strong>내림</strong>을 해야 하는 경우에는 <strong>floor()</strong> 메소드를 사용한다.</p>
+</li>
+<li><p><strong>소수점 자리 고정</strong>을 해야 할 경우 <strong>toFixed()</strong> 메소드를 사용한다. (숫자에만 사용 가능)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> avg = <span class="number">82</span>;</span><br><span class="line"><span class="keyword">var</span> printAvg = avg.toFixed(<span class="number">2</span>); <span class="comment">// 82.00</span></span><br><span class="line"><span class="keyword">var</span> avg2 = <span class="number">81.289</span>;</span><br><span class="line"><span class="keyword">var</span> printAvg2 = avg2.toFixed(<span class="number">2</span>); <span class="comment">// 81.29 (지정한 자리수보다 많으면 반올림 되서 나온다)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>무작위 숫자</strong>를 만들려면 <strong>Math.random()</strong> 메소드를 사용한다.</p>
+</li>
+<li><p><strong>현재 날짜와 시간</strong>을 구할때는 <strong>Date 객체</strong>를 사용한다. Data 객체를 생성후 관련 메소드를 사용할 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="keyword">var</span> year = now.getFullYear();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>년도 : getFullYear() -&gt; 2012년</li>
+<li>월 : getMonth() -&gt; 월은 0이 1월 11이 12월을 의미한다.</li>
+<li>일 : getDate() -&gt; 1부터 31일까지</li>
+<li>요일 : getDay() -&gt; 요일은 0이 일요일, 6이 토요일을 의미한다.</li>
+<li>시간 : getHours() -&gt; 0부터 23까지의 숫자로 기존 24시 체계와 동일하다.</li>
+<li>분 : getMinutes() -&gt; 0부터 59분까지</li>
+<li>초 : getSeconds() -&gt; 0부터 59초까지</li>
+<li>getTimes() -&gt; 1970년 1월 1일 0시부터 초단위로 계산한 시간을 나타냄</li>
+</ul>
+</li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://yeop-blog.github.io/2017/09/23/2017-09-23-old-blog-post13/" data-id="cjt7cw2zk001cpol8rfzpsipn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Yeop&#39;s"
+        },
+        "headline": "4장. 문자, 숫자, 날짜 다루기",
+        "image": "https://yeop-blog.github.io/images/javascript_thumbnail.jpg",
+        "keywords": "",
+        "genre": "Language JavaScript",
+        "datePublished": "2017-09-23",
+        "dateCreated": "2017-09-23",
+        "dateModified": "2019-03-12",
+        "url": "https://yeop-blog.github.io/2017/09/23/2017-09-23-old-blog-post13/",
+        "description": "
+문자열의 대,소문자 바꾸는 메소드
+
+문자열을 소문자에서 대문자로 바꾸고 싶은 경우 : .toUpperCase();
+문자열을 대문자에서 소문자로 바꾸고 싶은 경우 : .toLowerCase();  1answer.toLowerCase();
+
+
+
+문자열을 검색하고 싶은 경우 .indexOf(‘찾는 문자열’) 메소드를 사용한다.  
+1browser.indexOf"
+        "wordCount": 437
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/sungyeop.jung" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/sungyeopjung/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/seirian" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="https://yeop-blog.github.io/atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/09/23/2017-09-23-old-blog-post14/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            5장. 동적 웹 페이지(HTML 요소, DOM에 관해)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/09/22/2017-09-22-old-blog-post12/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">3장. 프로그램에 로직과 제어 추가</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post99/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/tip_thumbnail.jpg)" alt="ssh서버가 비밀번호를 거부했습니다. 다시 시도하십시오." class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tip-s/">Tip's</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post99/" class="title">ssh서버가 비밀번호를 거부했습니다. 다시 시도하십시오.</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:22:18.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post98/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/mssql_thumbnail.jpg)" alt="MSSQL IDENTITY값(시퀀스) 초기화" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DB/">DB</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DB/MSSQL/">MSSQL</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post98/" class="title">MSSQL IDENTITY값(시퀀스) 초기화</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:16:09.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post97/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/javascript_thumbnail.jpg)" alt="window.onload 대신 사용 가능한 jQuery, javascript 함수" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post97/" class="title">window.onload 대신 사용 가능한 jQuery, javascript 함수</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:12:07.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post96/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/tip_thumbnail.jpg)" alt="Windows 에서도 tail 명령어를!!" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tip-s/">Tip's</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post96/" class="title">Windows 에서도 tail 명령어를!!</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:08:58.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post95/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/lang_thumbnail.jpg)" alt="input 필드에 숫자만 입력받기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/HTML/">HTML</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post95/" class="title">input 필드에 숫자만 입력받기</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:06:10.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Ani/">Ani</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DB/Etc/">Etc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/MSSQL/">MSSQL</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/MySQL/">MySQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/Oracle/">Oracle</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Framework/">Framework</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Framework/Spring/">Spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Framework/iBatis/">iBatis</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/HTML/">HTML</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/JSP/">JSP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/JavaScript/">JavaScript</a><span class="category-list-count">17</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Doodle/">Doodle</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Game-s/">Game's</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Goal/">Goal</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Health/">Health</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/IDE-s/">IDE's</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server/">Server</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server/Apache-Tomcat/">Apache/Tomcat</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tip-s/">Tip's</a><span class="category-list-count">23</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">58</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">42</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Yeop&#39;s</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://yeop-blog.github.io/2017/09/23/2017-09-23-old-blog-post13/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

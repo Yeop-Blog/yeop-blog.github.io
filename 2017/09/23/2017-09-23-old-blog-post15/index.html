@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>5장. 동적 웹 페이지(자바스크립트 라이브러리) | Yeop&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content>
+    
+    <meta name="description" content="다양한 라이브러리가 있지만 여기서 소개하는 것은 jQuery라이브러리를 사용한다.  jQuery라이브러리 외에도 YUI(Yahoo User Interface), Prototype, Dojo Toolkit, Mootools 등이 있다.   jQuery의 장점    상대적으로 작은 파일 크기 웹 디자이너에게 친숙함 신뢰성 무료 개발자 커뮤니티가 활성화 되어">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5장. 동적 웹 페이지(자바스크립트 라이브러리)">
+<meta property="og:url" content="https://yeop-blog.github.io/2017/09/23/2017-09-23-old-blog-post15/index.html">
+<meta property="og:site_name" content="Yeop&#39;s Blog">
+<meta property="og:description" content="다양한 라이브러리가 있지만 여기서 소개하는 것은 jQuery라이브러리를 사용한다.  jQuery라이브러리 외에도 YUI(Yahoo User Interface), Prototype, Dojo Toolkit, Mootools 등이 있다.   jQuery의 장점    상대적으로 작은 파일 크기 웹 디자이너에게 친숙함 신뢰성 무료 개발자 커뮤니티가 활성화 되어">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://yeop-blog.github.io/images/javascript_thumbnail.jpg">
+<meta property="og:updated_time" content="2019-03-11T16:00:32.453Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="5장. 동적 웹 페이지(자바스크립트 라이브러리)">
+<meta name="twitter:description" content="다양한 라이브러리가 있지만 여기서 소개하는 것은 jQuery라이브러리를 사용한다.  jQuery라이브러리 외에도 YUI(Yahoo User Interface), Prototype, Dojo Toolkit, Mootools 등이 있다.   jQuery의 장점    상대적으로 작은 파일 크기 웹 디자이너에게 친숙함 신뢰성 무료 개발자 커뮤니티가 활성화 되어">
+<meta name="twitter:image" content="https://yeop-blog.github.io/images/javascript_thumbnail.jpg">
+    
+
+    
+        <link rel="alternate" href="https://yeop-blog.github.io/atom.xml" title="Yeop&#39;s Blog" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Life And Web IT Trend Written Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="http://yeop.net/">About</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Ani/">Ani</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/">DB</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/Etc/">Etc</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/MSSQL/">MSSQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/MySQL/">MySQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/Oracle/">Oracle</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Framework/">Framework</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Framework/Spring/">Spring</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Framework/iBatis/">iBatis</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/">Language</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/HTML/">HTML</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/JSP/">JSP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/JavaScript/">JavaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Doodle/">Doodle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Game-s/">Game's</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Goal/">Goal</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Health/">Health</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/IDE-s/">IDE's</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Server/">Server</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Server/Apache-Tomcat/">Apache/Tomcat</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Study/">Study</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tip-s/">Tip's</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Language/JavaScript/">JavaScript</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2017-09-23-old-blog-post15" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        5장. 동적 웹 페이지(자바스크립트 라이브러리)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/09/23/2017-09-23-old-blog-post15/" class="article-date">
+            <time datetime="2017-09-23T12:29:00.000Z" itemprop="datePublished">2017-09-23</time>
+        </a>
+    </div>
+
+		
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <ol>
+<li><p>다양한 라이브러리가 있지만 여기서 소개하는 것은 <strong>jQuery라이브러리</strong>를 사용한다.</p>
+<ul>
+<li>jQuery라이브러리 외에도 YUI(Yahoo User Interface), Prototype, Dojo Toolkit, Mootools 등이 있다.</li>
+</ul>
+</li>
+<li><p>jQuery의 장점  </p>
+<ul>
+<li>상대적으로 <strong>작은 파일 크기</strong></li>
+<li>웹 디자이너에게 친숙함</li>
+<li>신뢰성</li>
+<li><strong>무료</strong></li>
+<li><strong>개발자 커뮤니티가 활성화</strong> 되어 있다는 점</li>
+<li><strong>플러그인</strong></li>
+</ul>
+</li>
+<li><p>jQuery 파일은 3가지 종류가 있다.</p>
+<ul>
+<li>Uncompressed(압축안함)</li>
+<li>Packed(압축)</li>
+<li><strong>Minified(최소화)</strong><br>1) 보통은 Minifed 버전의 jQuery 파일을 다운 받아 쓰는것이 좋다.<br>2) 사용하는 방법은 <code>&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.js&quot;&gt;&lt;/script&gt;</code> 이런식으로 선언하고 사용하면 된다.</li>
+</ul>
+</li>
+<li><p>HTML 요소 선택</p>
+<ul>
+<li><p>jQuery의 기본적인 문법은 아래와 같다.  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'selector'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>예를 들어 banner라는 id를 가진 태그를 선택 하려면 아래와 같다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#banner'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>태그 내 속성을 아래와 같이 변경을 할 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#banner'</span>).html(<span class="string">'&lt;h1&gt;제목 크기를 변경하였습니다.&lt;/h1&gt;'</span>);</span><br><span class="line">jQuery(<span class="string">'#banner'</span>).html(<span class="string">'&lt;h1&gt;제목 크기를 변경하였습니다.&lt;/h1&gt;'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>기존의 DOM방식과 jQuery방식의 차이를 아래 예제를 통해 보면 쉽게 알 수 있다.<br>1) DOM 방식 : <code>var result = document.getElementById(&#39;message&#39;);</code><br>2) jQuery 방식 : <code>var result = $(&#39;#message&#39;);</code></p>
+</li>
+<li>HTML 요소 선택도 차이점을 보여준다.<br>1) DOM 방식 : <code>var linksList = document.getElementsByTagName(&#39;a&#39;);</code><br>2) jQuery 방식 : <code>var linksList = $(&#39;a&#39;);</code></li>
+<li>클래스를 선택할때는 다음과 같이 하면 된다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'.submenu'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>고급 선택자</p>
+<ul>
+<li><p>하위 선택자</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#navBar a'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>자식 선택자</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'body &gt; p'</span>) <span class="comment">// 여기서 &lt;body&gt;태그보단 안에 &lt;p&gt;태그가 속해 있는 경우</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>인접 형제 선택자</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'h2 + div'</span>) <span class="comment">// 실제로 써 봐야 알듯..?</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>속성 선택자</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'img[ alt]'</span>) <span class="comment">// alt 속성이 있는 &lt;img&gt;태그를 찾는 경우</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>속성=값</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'input[ type=text]'</span>) <span class="comment">// 텍스트 박스만 선택하고 싶은 경우</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>속성^=값</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'a[ href^=http://]'</span>) <span class="comment">// 외부 사이트 링크를 찾고 싶은 경우</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>속성$=값</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'a[ href$=.pdf]'</span>) <span class="comment">// pdf파일을 가르키는 링크를 찾고 싶은 경우</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>속성*=값</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'a[ href*=daum.net]'</span>) <span class="comment">// daum.net을 가르키는 모든 링크를 찾고 싶은 경우</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>jQuery 필터(이후 부터는 각 메소드들의 사용법 및 설명만 참고함)</p>
+<ul>
+<li><p>:even / :odd<br>: 특정 그룹에서 짝수 또는 홀수 번째의 HTML 요소 선택</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'tr:even'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>:not()<br>: 특정 선택자에 해당하지 않는 HTML 요소 선택</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'a:not(.navButton)'</span>); <span class="comment">// navButton 클래스가 없는 모든 &lt;a&gt; 태그 선택</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>:has()<br>: 또 다른 선택자를 가진 HTML 요소 선택</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'li:has(a)'</span>) <span class="comment">// &lt;a&gt; 태그 내부에 포함된 &lt;li&gt; 태그를 찾을때</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>:contains()<br>: 특정 텍스트를 포함하고 있는 HTML 요소 선택</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'a:contains(클릭하세요!)'</span>) <span class="comment">// 클릭하세요! 라는 텍스트가 있는 링크를 찾을때</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>:hidden<br>: 숨겨진 HTML 요소를 선택</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'div:hidden'</span>).show();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>:visible<br>: hidden과는 반대로 화면상에서 보이는 HTML 요소를 선택</p>
+</li>
+</ul>
+</li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://yeop-blog.github.io/2017/09/23/2017-09-23-old-blog-post15/" data-id="cjt7cw2zn001gpol8dj0g461c" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Yeop&#39;s"
+        },
+        "headline": "5장. 동적 웹 페이지(자바스크립트 라이브러리)",
+        "image": "https://yeop-blog.github.io/images/javascript_thumbnail.jpg",
+        "keywords": "",
+        "genre": "Language JavaScript",
+        "datePublished": "2017-09-23",
+        "dateCreated": "2017-09-23",
+        "dateModified": "2019-03-12",
+        "url": "https://yeop-blog.github.io/2017/09/23/2017-09-23-old-blog-post15/",
+        "description": "
+다양한 라이브러리가 있지만 여기서 소개하는 것은 jQuery라이브러리를 사용한다.
+
+jQuery라이브러리 외에도 YUI(Yahoo User Interface), Prototype, Dojo Toolkit, Mootools 등이 있다.
+
+
+jQuery의 장점  
+
+상대적으로 작은 파일 크기
+웹 디자이너에게 친숙함
+신뢰성
+무료
+개발자 커뮤니티가 활성화 되어 "
+        "wordCount": 402
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/sungyeop.jung" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/sungyeopjung/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/seirian" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="https://yeop-blog.github.io/atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/09/23/2017-09-23-old-blog-post16/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Java Fundamental 정리 - 방법론, 직업군, 아키텍처
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/09/23/2017-09-23-old-blog-post14/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">5장. 동적 웹 페이지(HTML 요소, DOM에 관해)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post99/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/tip_thumbnail.jpg)" alt="ssh서버가 비밀번호를 거부했습니다. 다시 시도하십시오." class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tip-s/">Tip's</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post99/" class="title">ssh서버가 비밀번호를 거부했습니다. 다시 시도하십시오.</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:22:18.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post98/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/mssql_thumbnail.jpg)" alt="MSSQL IDENTITY값(시퀀스) 초기화" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DB/">DB</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DB/MSSQL/">MSSQL</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post98/" class="title">MSSQL IDENTITY값(시퀀스) 초기화</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:16:09.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post97/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/javascript_thumbnail.jpg)" alt="window.onload 대신 사용 가능한 jQuery, javascript 함수" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post97/" class="title">window.onload 대신 사용 가능한 jQuery, javascript 함수</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:12:07.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post96/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/tip_thumbnail.jpg)" alt="Windows 에서도 tail 명령어를!!" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tip-s/">Tip's</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post96/" class="title">Windows 에서도 tail 명령어를!!</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:08:58.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post95/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/lang_thumbnail.jpg)" alt="input 필드에 숫자만 입력받기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/HTML/">HTML</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post95/" class="title">input 필드에 숫자만 입력받기</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:06:10.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Ani/">Ani</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DB/Etc/">Etc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/MSSQL/">MSSQL</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/MySQL/">MySQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/Oracle/">Oracle</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Framework/">Framework</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Framework/Spring/">Spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Framework/iBatis/">iBatis</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/HTML/">HTML</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/JSP/">JSP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/JavaScript/">JavaScript</a><span class="category-list-count">17</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Doodle/">Doodle</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Game-s/">Game's</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Goal/">Goal</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Health/">Health</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/IDE-s/">IDE's</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server/">Server</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server/Apache-Tomcat/">Apache/Tomcat</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tip-s/">Tip's</a><span class="category-list-count">23</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">58</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">42</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Yeop&#39;s</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://yeop-blog.github.io/2017/09/23/2017-09-23-old-blog-post15/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

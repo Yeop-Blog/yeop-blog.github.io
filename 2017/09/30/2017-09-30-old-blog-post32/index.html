@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>자주 쓰는 MySQL 명령어 정리 | Yeop&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content>
+    
+    <meta name="description" content="# root암호설정 - root로 로그인하여 해야함% mysqladmin -u root password ‘변경암호’% mysqladmin -u root -p기존암호 password ‘변경암호’   root암호변경설정PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !This is done with:/us">
+<meta property="og:type" content="article">
+<meta property="og:title" content="자주 쓰는 MySQL 명령어 정리">
+<meta property="og:url" content="https://yeop-blog.github.io/2017/09/30/2017-09-30-old-blog-post32/index.html">
+<meta property="og:site_name" content="Yeop&#39;s Blog">
+<meta property="og:description" content="# root암호설정 - root로 로그인하여 해야함% mysqladmin -u root password ‘변경암호’% mysqladmin -u root -p기존암호 password ‘변경암호’   root암호변경설정PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !This is done with:/us">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://yeop-blog.github.io/images/mysql_thumbnail.jpg">
+<meta property="og:updated_time" content="2019-03-11T16:00:32.469Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="자주 쓰는 MySQL 명령어 정리">
+<meta name="twitter:description" content="# root암호설정 - root로 로그인하여 해야함% mysqladmin -u root password ‘변경암호’% mysqladmin -u root -p기존암호 password ‘변경암호’   root암호변경설정PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !This is done with:/us">
+<meta name="twitter:image" content="https://yeop-blog.github.io/images/mysql_thumbnail.jpg">
+    
+
+    
+        <link rel="alternate" href="https://yeop-blog.github.io/atom.xml" title="Yeop&#39;s Blog" type="application/atom+xml">
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">Life And Web IT Trend Written Blog</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item">
+                                    <a class="main-nav-list-link" href="http://yeop.net/">About</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Ani/">Ani</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/">DB</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/Etc/">Etc</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/MSSQL/">MSSQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/MySQL/">MySQL</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DB/Oracle/">Oracle</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Framework/">Framework</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Framework/Spring/">Spring</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Framework/iBatis/">iBatis</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/">Language</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/HTML/">HTML</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/JSP/">JSP</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Language/JavaScript/">JavaScript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/">Life</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Doodle/">Doodle</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Game-s/">Game's</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Goal/">Goal</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Life/Health/">Health</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/IDE-s/">IDE's</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Server/">Server</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Server/Apache-Tomcat/">Apache/Tomcat</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Study/">Study</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Tip-s/">Tip's</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search">
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something...">
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/DB/">DB</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/DB/MySQL/">MySQL</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-2017-09-30-old-blog-post32" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        자주 쓰는 MySQL 명령어 정리
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/09/30/2017-09-30-old-blog-post32/" class="article-date">
+            <time datetime="2017-09-30T10:04:00.000Z" itemprop="datePublished">2017-09-30</time>
+        </a>
+    </div>
+
+		
+
+                
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><strong># root암호설정 - root로 로그인하여 해야함</strong><br>% mysqladmin -u root password ‘변경암호’<br>% mysqladmin -u root -p기존암호 password ‘변경암호’  </p>
+<p><strong>root암호변경설정</strong><br>PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !<br>This is done with:<br>/usr/bin/mysqladmin -u root -p password ‘new-password’<br>/usr/bin/mysqladmin -u root -h ns.moyiza.net -p password ‘new-password’</p>
+<p><strong>DB작업</strong><br>DB생성: mysql&gt; create database DB명 ( or % mysqladmin -u root -p create DB명 )<br>DB삭제: mysql&gt; drop database DB명<br>DB사용: mysql&gt; use DB명 (엄밀히 말하자면, 사용할 ‘default database’를 선택하는 것이다.)<br>DB변경: mysql&gt; alter database db명 DEFAULT CHARACTER SET charset (4.1이상에서만 available)</p>
+<p><strong>MySQL 연결</strong><br>mysql -u 사용자 -p DB명 ( or % mysqladmin -u root -p drop DB명 )</p>
+<p><strong>데이터파일 실행(sql*loader기능)</strong><br>mysql&gt;load data infile “데이터파일” into table 테이블명 ;<br>데이터파일에서 컬럼구분은 탭문자, Null값은 /n로 입력<br>데이터파일의 위치는 /home/kang/load.txt 와 같이 절대경로로 지정할것.</p>
+<p><strong>질의 파일 실행</strong><br>쉘프롬프트상에서<br>mysql -u 사용자 -p DB명 &lt; 질의파일<br>or<br>mysql프롬프트상에서<br>mysql&gt; source 질의파일  </p>
+<p><strong>쉘프롬프트상에서 질의 실행</strong><br><code>moyiza@nero board]$ mysql mysql -u root -pxxxx -e</code><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> db <span class="keyword">VALUES</span>(</span><br><span class="line"><span class="string">'localhost'</span>, <span class="string">'aaa'</span>, <span class="string">'aaa'</span>,</span><br><span class="line"><span class="string">'Y'</span>, <span class="string">'Y'</span>, <span class="string">'Y'</span>, <span class="string">'Y'</span>, <span class="string">'Y'</span>, <span class="string">'Y'</span>, <span class="string">'Y'</span>, <span class="string">'Y'</span>, <span class="string">'Y'</span>, <span class="string">'Y'</span>)</span><br></pre></td></tr></table></figure></p>
+<p><strong>사용자 생성 &amp; 사용자에게 DB할당</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">shell&gt; mysql --user=root -p mysql  </span><br><span class="line"></span><br><span class="line">mysql&gt; INSERT INTO user VALUES(&apos;localhost&apos;,&apos;사용자&apos;,PASSWORD(&apos;비밀번호&apos;),&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;);</span><br><span class="line">mysql&gt; INSERT INTO user VALUES(&apos;%&apos;,&apos;사용자&apos;,PASSWORD(&apos;비밀번호&apos;),&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;);</span><br><span class="line"></span><br><span class="line">mysql&gt; INSERT INTO db(Host,Db,User,Select_priv,Insert_priv,Update_priv,Delete_priv,Create_priv,Drop_priv) VALUES (&apos;localhost&apos;,&apos;DB명&apos;,&apos;사용자&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;);</span><br><span class="line">mysql&gt; INSERT INTO db(Host,Db,User,Select_priv,Insert_priv,Update_priv,Delete_priv,Create_priv,Drop_priv) VALUES(&apos;%&apos;,&apos;DB명&apos;,&apos;사용자&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;);</span><br><span class="line"></span><br><span class="line">mysql&gt; FLUSH PRIVILEGES; (or shell prompt: mysqladmin -u root -pxxxx reload)</span><br></pre></td></tr></table></figure></p>
+<p><strong>CASE 2: GRANT명령을 이용한 사용자 생성(이 방법이 권장된다)</strong><br>kang이라는 DB를 만들고, 이 DB를 아래에서 나열된 권한을 가진 kang이라는 사용자를 생성<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">create database kang;</span><br><span class="line">grant SELECT,INSERT,UPDATE,DELETE,CREATE,DROP on kang.* to kang@localhost identified by &apos;kang&apos;;</span><br><span class="line">grant SELECT,INSERT,UPDATE,DELETE,CREATE,DROP on kang.* to kang@&apos;%&apos; identified by &apos;kang&apos;;</span><br><span class="line"></span><br><span class="line">mysql&gt; create database kang;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; grant SELECT,INSERT,UPDATE,DELETE,CREATE,DROP on kang.* to kang@localhost identified by &apos;kang&apos;;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; grant SELECT,INSERT,UPDATE,DELETE,CREATE,DROP on kang.* to kang@&apos;%&apos; identified by &apos;kang&apos;;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br></pre></td></tr></table></figure></p>
+<p><strong>여러가지 명령정리</strong><br><code>mysql&gt; show variables;</code><br>: 서버의 variables(설정사항)출력<br><code>mysql&gt; show variables like &#39;have_inno%&#39;;</code><br>: 조건에 맞는 variables만 출력<br><code>mysql&gt; show databases;</code><br>: database목록<br><code>mysql&gt; show tables;</code><br>: 현재DB의 테이블목록(temporary table은 출력하지 않음)<br><code>mysql&gt; show tables from db명;</code><br>: 지정된 db명이 소유한 테이블목록<br><code>mysql&gt; show tables like &#39;mem%&#39;;</code><br>: 조건에 맞는 테이블목록만 출력<br><code>mysql&gt; show index from 테이블명;</code><br>: 인덱스 보기<br><code>mysql&gt; show columns from 테이블명;</code><br>: 테이블구조(describe 테이블명, explain 테이블명)<br><code>mysql&gt; show table status;</code><br>: 현재 DB의 테이블들의 상태(row수,table type,row길이,..)<br><code>mysql&gt; show table status from db명;</code><br>: 지정된 DB의 테이블들의 상태(row수,table type,row길이,..)<br><code>mysql&gt; show create table 테이블명;</code><br>: 해당 테이블 생성 SQL문 출력<br><code>mysql&gt; rename table 테이블1 to 테이블2;</code><br>: 테이블명 변경(ALTER TABLE 테이블1 RENAME TO 테이블2)<br><code>mysql&gt; rename table 테이블1 to 테이블2, 테이블3 to 테이블4;</code><br>: rename multiple tables<br><code>mysql&gt; rename table db1명.테이블명 to db2명.테이블명;</code><br>: 테이블을 다른 DB로 이동<br><code>mysql&gt; alter table 테이블명 add 컬럼명 데이터타입;</code><br>: 컬럼추가<br><code>mysql&gt; alter table 테이블명 del 컬럼명;</code><br>: 컬럼제거<br><code>mysql&gt; alter table 테이블명 modify 컬럼명 컬럼타입;</code><br>: 컬럼명에 지정된 컬럼타입의 변경<br><code>mysql&gt; alter table 테이블명 change old컬럼명 new컬럼명 컬럼타입;</code><br>: 컬럼명 변경<br><code>mysql&gt; alter table 테이블명 type=innodb;</code><br>: 테이블type변경<br><code>mysql&gt; create table 테이블명(..) type=heap min_rows=10000;</code><br>: 10000row를 수용할 수 있을 만큼 메모리할당(heap type이므로)<br><code>mysql&gt; select version();</code><br>: MySQL서버버전 출력<br><code>mysql&gt; create table 테이블2 as select * from 테이블1;</code><br>: 테이블1과 동일한 테이블 생성(with 데이터, as는 생략가능)<br><code>mysql&gt; create table 테이블2 as select * from 테이블1 where 1=2;</code><br>: 테이블1과 동일한 구조의 테이블 생성(without 데이터, 1=2는 0으로 할수도 있다.)<br><code>mysql&gt; insert into 테이블2 select * from 테이블1;</code><br>: 테이블1의 데이터를 테이블2에 insert</p>
+<p><strong>테이블이 존재여부 파악</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE IF EXISTS 테이블명;</span><br><span class="line">CREATE TABLE 테이블명 (...);</span><br></pre></td></tr></table></figure></p>
+<p>프로그래밍 언어에서 COUNT(*)를 사용하여 질의가 성공하면 테이블이 존재함을 파악할 수 있다.<br>ISAM, MyISAM의 경우 COUNT(*)가 최적화되어 상관없으나, BDB, InnoDB의 경우 full scan이 발생하므로 사용하지 마라.<br>대신 select * from 테이블명 where 0; 을 사용하라.<br>질의가 성공하면 테이블이 존재하는 것이고, 아니면 존재하지 않는 것이다.</p>
+<p><strong>접속</strong><br><code>mysql {-h 접속호스트} -u 사용자 -p 사용DB</code><br>-h로 다른 서버에 존재하는 MySQL접속시 다음과 같이 MySQL DB에 설정해줘야 한다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; INSERT INTO user VALUES(&apos;접근을 허용할 호스트ip&apos;,&apos;사용자&apos;,PASSWORD(&apos;비밀번호&apos;),&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;, &apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;);</span><br><span class="line">mysql&gt; INSERT INTO db(Host,Db,User,Select_priv,Insert_priv,Update_priv,Delete_priv,Create_priv,Drop_priv) VALUES(&apos;접근을 허용할 호스트ip&apos;,&apos;사용DB&apos;,&apos;사용자&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;,&apos;Y&apos;);</span><br><span class="line">mysql&gt; FLUSH PRIVILEGES; or 쉴프롬프트상에서 % mysqladmin -u root -p flush-privileges</span><br></pre></td></tr></table></figure></p>
+<p><strong>검색조건(where)</strong><br>regular expression을 지원하다니 신기하군..<br><code>mysql&gt; select * from work where 열명 regexp &quot;정규표현식&quot;;</code></p>
+<p><strong>백업 &amp; 복구</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysqldump &#123;-h 호스트&#125; -u 사용자 -p DB명 &gt; 백업파일</span><br><span class="line">mysql &#123;-h 호스트&#125; -u 사용자 -p DB명 &lt; 백업파일</span><br><span class="line"></span><br><span class="line">mysqldump -u root -p --opt db_moyiza &gt; moyiza.sql</span><br><span class="line">mysqldump -u root -p --opt db_board | mysql ---host=remote-host -C database (상이한 머쉰)</span><br><span class="line">mysql -u moyiza -p db_moyiza &lt; moyiza.sql</span><br><span class="line"></span><br><span class="line">mysqldump -u root -p --opt db_moyiza | mysql ---host=ns.moyiza.net -C db_moyiza</span><br></pre></td></tr></table></figure></p>
+<p>테이블 생성구문만을 화면에서 보려면 다음과 같이 –no-data를 사용한다. 테이블명을 생략하면 모든 테이블 출력<br><code>mysqldump -u 유저명 -p --no-data db명 테이블명</code></p>
+<p><strong>테이블 검사</strong><br><code>isamchk</code></p>
+<p><strong>오라클 sysdate와 동일</strong><br><code>insert into test values(&#39;12&#39;, now());</code></p>
+<p><strong>유닉스 time()함수 리턴값 사용</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">FROM_UNIXTIME(954788684)</span><br><span class="line">UNIX_TIMESTAMP(&quot;2001-04-04 :04:04:04&quot;)</span><br></pre></td></tr></table></figure></p>
+<p><strong>MySQL 디폴트 DB&amp;로그파일 위치</strong><br>/var/lib/mysql<br>/var/lib디렉토리는 여러 프로세스들이 사용하는 데이터를 저장하는 일종의 파일시스템상의 데이터베이스라고 볼 수 있다.</p>
+<p><strong>replace</strong><br>해당 레코드 존재하면 update하고, 존재하지 않는다면 insert한다.(insert문법과 동일)<br><code>replace into test values(&#39;maddog&#39;,&#39;kang myung gyu&#39;)&#39;</code></p>
+<p><strong>explain</strong><br>explain 질의문: 지정한 질의문이 어떻게 실행될 건지를 보여줌<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; explain select u.uid, u.name, a.name from sm_user u, sm_addr a where u.uid=a.uid;</span><br><span class="line">+-------+------+-----------------+-----------------+---------+-------+------+-------+</span><br><span class="line">| table | type | possible_keys | key | key_len | ref | rows | Extra |</span><br><span class="line">+-------+------+-----------------+-----------------+---------+-------+------+-------+</span><br><span class="line">| u | ALL | PRIMARY | NULL | NULL | NULL | 370 | |</span><br><span class="line">| a | ref | sm_addr_uid_idx | sm_addr_uid_idx | 11 | u.uid | 11 | |</span><br><span class="line">+-------+------+-----------------+-----------------+---------+-------+------+-------+</span><br><span class="line">2 rows in set (0.01 sec)</span><br></pre></td></tr></table></figure></p>
+<p><strong>temporary table</strong><br>크기가 큰 테이블에 있는 subset에 대한 질의라면 subset을 temporary table에 저장한 후 질의하는 것이 더 빠를 경우가 있다.<br>temporary table는 세션내에서만 유효하고(현재 사용자만이 볼수 있다는 뜻), 세션종료시 자동적으로 drop된다.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create temporary table (...);</span><br><span class="line">create temporary table (...) type=heap; //디스크가 아닌 메모리에 테이블 생성</span><br></pre></td></tr></table></figure></p>
+<p>존재하는 permanent table의 테이블명과 동일하게 생성할 수 있으며,<br>temporary table은 permanent table보다 우선시되어 처리된다.<br>4.0.7의 감마버전에서 테스트하면 결과는 약간 달라진다. 버그인건지..<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; create table test (id varchar(10));</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; insert into test values(&apos;moyiza&apos;);</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; create temporary table test(id varchar(10));</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select * from test;</span><br><span class="line">Empty set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; drop table test;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select * from test;</span><br><span class="line">+----------+</span><br><span class="line">| id |</span><br><span class="line">+----------+</span><br><span class="line">| moyiza |</span><br><span class="line">+----------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+<p><strong>Table Type에 다른 Files on Disk</strong><br>ISAM .frm (definition) .ISD (data) .ISM (indexes)<br>MyISAM .frm (definition) .MYD (data) .MYI (indexes)<br>MERGE .frm (definition) .MRG (list of constituent MyISAM table names)<br>HEAP .frm (definition)<br>BDB .frm (definition) .db (data and indexes)<br>InnoDB .frm (definition)</p>
+<p>보통 mysqldump를 사용하여 백업을 수행하여 다른 DB서버에 데이터를 restore하면 된다.<br>MySQL은 별다른 작업없이 데이터파일을 단순히 복사(copy)하는 것만으로도 다른 서버에 DB을 이동시킬 수 있다.<br>하지만, 이런 방식이 지원되지 않는 table type도 있다.  </p>
+<p>ISAM: machine-dependent format하기때문에..<br>BDB : .db파일에 이미 테이블위치가 encode되어 있기때문에..<br>MyISAM, InnoDB, MERGE :가능(machine-independent format)  </p>
+<p>별다른 지정을 하지 않았다면 디폴트 TABLE type이 MyISAM이므로, 무난히 migration할 수 있다.<br>floating-point컬럼(FLOAT,DOUBLE)이 있다면 이러한 방식이 실패할 수 도 있다.  </p>
+<p>쉘에서는 mysql이 되는데 PHP에서 mysql.sock error를 내면서 MySQL이 안되는 경우 mysql.sock은 /tmp 아니면 /var/lib/mysql에 생기게 된다.<br>나의 경우, /var/lib/mysql에 mysql.sock파일이 있는데 PHP에서는 /tmp에서 찾으려하면서 에러를 발생했다.<br>/usr/bin/safe_mysqld파일에서 다음과 같이 수정한다.<br>주석(#)이 달린 것이 원래것이고 그 밑에 있는것이 수정한 것이다.  </p>
+<p># MYSQL_UNIX_PORT=${MYSQL_UNIX_PORT:-/var/lib/mysql/mysql.sock}<br>MYSQL_UNIX_PORT=${MYSQL_UNIX_PORT:-/tmp/mysql.sock}</p>
+<p>위와 같이 하니 /usr/bin/mysql이 /var/lib/mysql/mysql.sock에서 소켓파일을 찾으려 했다.<br>socket file을 지정하는 –socket이라는 옵션으로 다음과 같이 지정하면 된다.<br><code>mysql --socket=/tmp/mysql.sock -u moyiza -p db_test</code>  </p>
+<p>하지만 mysql실행시마다 이렇게 써줘야한다는 것이 상당히 귀찮다. 옵션이 바로 적용되게 설정하자.<br>mysql은 설정사항을 다음 3가지 파일에서 검색한다.  </p>
+<p>/etc/my.cnf global options(MySQL 전체적으로 사용되는 옵션 정의)<br>mysql-data-dir/my.cnf 특정 DB에 적용되는 option   (/var/lib/mysql/my.cnf)<br>~/.my.cnf 사용자 각각의 설정(‘~’문자는 사용자의 홈디렉토리는 의미)</p>
+<p>/usr/share/mysql디렉토리에 예제가 있으므로 참고한다.<br>소켓파일의 지정은 다음줄을 넣어주면 된다.<br><code>socket = /tmp/mysql.sock</code></p>
+<p>== /etc/my.cnf예 ==<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># The following options will be passed to all MySQL clients</span><br><span class="line">[client]</span><br><span class="line">#password = your_password</span><br><span class="line">port = 3306</span><br><span class="line">socket = /tmp/mysql.sock</span><br><span class="line"></span><br><span class="line"># Here follows entries for some specific programs</span><br><span class="line"></span><br><span class="line"># The MySQL server</span><br><span class="line">[mysqld]</span><br><span class="line">port = 3306</span><br><span class="line">socket = /tmp/mysql.sock</span><br></pre></td></tr></table></figure></p>
+<p>MySQL에서 통계처리시<br>orderby, groupby 는 sort_buffer를 늘여준다.(show variables)  </p>
+<p>live table(smslog)에서 모든 질의를 처리하지 말고 summary table에 질의결과를 저장해 재질의 처리한다.<br>summary table이 heap-type table가 가능한지 확인할 것.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO tblTemp2 (fldID) SELECT tblTemp1.fldOrder_ID FROM tblTemp1 WHERE tblTemp1.fldOrder_ID &gt; 100;</span><br></pre></td></tr></table></figure></p>
+<p>join이 subselect보다 빠르다.<br>join시 사용되는 컬럼은 동일한 column type과 길이를 가져야만 최적의 속도를 보장한다.<br>즉, 동일 column type이지만 길이가 다르다면(char(11), char(10)), 동일한 컬럼도메인으로 변경해주는 것이 좋다.<br>where의 in은 optimize되어 있으므로 빠르다.<br>insert,select는 동시에 수행가능하다.(어떻게?)<br>explain으로 질의과정 점검  </p>
+<p>varchar to/from char<br>conversion varchar를 char로 변경할 경우 모든 컬럼타입을 동시에 변경해야 한다.<br>반대의 경우, 하나만 char-&gt;charchar변경시 다른 모든 컬럼도 varchar로 변경됨<br>참.. 특이하구만..<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE TABLE chartbl (name VARCHAR(40), address VARCHAR(80));</span><br><span class="line">Query OK, 0 rows affected (0.05 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; desc chartbl;</span><br><span class="line">+---------+-------------+------+-----+---------+-------+</span><br><span class="line">| Field | Type | Null | Key | Default | Extra |</span><br><span class="line">+---------+-------------+------+-----+---------+-------+</span><br><span class="line">| name | varchar(40) | YES | | NULL | |</span><br><span class="line">| address | varchar(80) | YES | | NULL | |</span><br><span class="line">+---------+-------------+------+-----+---------+-------+</span><br><span class="line">2 rows in set (0.03 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; alter table chartbl modify name char(40);</span><br><span class="line">Query OK, 0 rows affected (0.02 sec)</span><br><span class="line">Records: 0 Duplicates: 0 Warnings: 0</span><br><span class="line"></span><br><span class="line">mysql&gt; desc chartbl;</span><br><span class="line">+---------+-------------+------+-----+---------+-------+</span><br><span class="line">| Field | Type | Null | Key | Default | Extra |</span><br><span class="line">+---------+-------------+------+-----+---------+-------+</span><br><span class="line">| name | varchar(40) | YES | | NULL | |</span><br><span class="line">| address | varchar(80) | YES | | NULL | |</span><br><span class="line">+---------+-------------+------+-----+---------+-------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; alter table chartbl modify name char(40), modify address char(80);</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line">Records: 0 Duplicates: 0 Warnings: 0</span><br><span class="line"></span><br><span class="line">mysql&gt; desc chartbl;</span><br><span class="line">+---------+----------+------+-----+---------+-------+</span><br><span class="line">| Field | Type | Null | Key | Default | Extra |</span><br><span class="line">+---------+----------+------+-----+---------+-------+</span><br><span class="line">| name | char(40) | YES | | NULL | |</span><br><span class="line">| address | char(80) | YES | | NULL | |</span><br><span class="line">+---------+----------+------+-----+---------+-------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure></p>
+<p>“For each article, find the dealer(s) with the most expensive price.”</p>
+<p>표준안<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> article, dealer, price</span><br><span class="line"><span class="keyword">FROM</span> shop s1</span><br><span class="line"><span class="keyword">WHERE</span> price=(<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(s2.price)</span><br><span class="line"><span class="keyword">FROM</span> shop s2</span><br><span class="line"><span class="keyword">WHERE</span> s1.article = s2.article);</span><br></pre></td></tr></table></figure></p>
+<p>수정안(최적화)<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TEMPORARY</span> <span class="keyword">TABLE</span> tmp (</span><br><span class="line">article <span class="built_in">INT</span>(<span class="number">4</span>) <span class="keyword">UNSIGNED</span> ZEROFILL <span class="keyword">DEFAULT</span> <span class="string">'0000'</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">price <span class="keyword">DOUBLE</span>(<span class="number">16</span>,<span class="number">2</span>) <span class="keyword">DEFAULT</span> <span class="string">'0.00'</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">LOCK</span> <span class="keyword">TABLES</span> shop <span class="keyword">read</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> tmp <span class="keyword">SELECT</span> article, <span class="keyword">MAX</span>(price) <span class="keyword">FROM</span> shop <span class="keyword">GROUP</span> <span class="keyword">BY</span> article;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> shop.article, dealer, shop.price <span class="keyword">FROM</span> shop, tmp</span><br><span class="line"><span class="keyword">WHERE</span> shop.article=tmp.article <span class="keyword">AND</span> shop.price=tmp.price;</span><br><span class="line"></span><br><span class="line"><span class="keyword">UNLOCK</span> <span class="keyword">TABLES</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> tmp;</span><br></pre></td></tr></table></figure></p>
+<h5 id="MySQL-특성정리"><a href="#MySQL-특성정리" class="headerlink" title="MySQL 특성정리"></a>MySQL 특성정리</h5><p>primary key, foreign key지원<br>index 지원(15개컬럼, 256byte까지)<br>MySQL에서의 Stored Script개념 =&gt; SQL server language<br>commit-rollback개념 =&gt; lock tables(lock table test write -&gt; 트랜잭션.. -&gt; unlock tables)<br>컬럼명길이: 64자까지, 컬럼 Alias: 256자까지<br>not case-sensitive: keywords, functions, column, index명<br>case-sensitive: database, table, alias명<br>키워드,함수명은 대소문자구별이 없지만, db명과 table명은 Unix계열이라면 case-sensitive하다.<br>(이는 오브젝트명이 OS의 fs에 따라 저장되기 때문이다. 서버의 lower_case_table_names 변수를 1로 설정하면 오브젝트명은 모두 소문자로 저장되므로 유닉스-윈도간 호환성을 높일 수 있다.)  </p>
+<p>지원되지 않는 부분:<br>Stored Procedure(5.0이상부터 지원된다고 함)<br>View(5.0이상부터 지원된다고 함)<br>Trigger(5.0이상부터 지원된다고 함)<br>subquery(4.1이상부터 지원된다고 함)<br>union, union all(4.0이상부터 지원됨)</p>
+<p>[테이블 type에 따른 인덱스 특성]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Index Characteristic ISAM MyISAM HEAP BDB InnoDB</span><br><span class="line">NULL values allowed No Yes As of 4.0.2 Yes Yes</span><br><span class="line">Columns per index 16 16 16 16 16</span><br><span class="line">Indexes per table 16 32 32 31 32</span><br><span class="line">Maximum index row size (bytes) 256 500 500 500/1024 500/1024</span><br><span class="line">Index column prefixes allowed Yes Yes Yes Yes No</span><br><span class="line">BLOB/TEXT indexes allowed No Yes(255 bytes max) No Yes (255 bytes max) No</span><br></pre></td></tr></table></figure></p>
+<p>인덱스 생성<br>- alter table을 이용한 인덱스 생성이 더 flexible함<br>- 인덱스명은 생략가능  </p>
+<p>ALTER TABLE 테이블명 ADD INDEX 인덱스명 (인덱스컬럼);<br>ALTER TABLE 테이블명 ADD UNIQUE 인덱스명 (인덱스컬럼);<br>ALTER TABLE 테이블명 ADD PRIMARY KEY (인덱스컬럼);<br>ALTER TABLE 테이블명 ADD FULLTEXT (인덱스컬럼);  </p>
+<p>CREATE INDEX 인덱스명 ON 테이블명 (인덱스컬럼);<br>CREATE UNIQUE INDEX 인덱스명 ON 테이블명 (인덱스컬럼);<br>CREATE FULLTEXT INDEX 인덱스명 ON 테이블명 (인덱스컬럼);  </p>
+<p>unique인덱스와 primary key인덱스와의 차이<br>unique은 null허용하지만, primary key는 null허용 안함<br>unique은 하나의 테이블에 여러개 올 수 있지만, primary key는 하나만 존재  </p>
+<p>테이블생성시 지정<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 테이블명</span><br><span class="line">(</span><br><span class="line">... <span class="keyword">column</span> declarations ...</span><br><span class="line"><span class="keyword">INDEX</span> 인덱스명 (인덱스컬럼),</span><br><span class="line"><span class="keyword">UNIQUE</span> 인덱스명 (인덱스컬럼),</span><br><span class="line">PRIMARY <span class="keyword">KEY</span> (인덱스컬럼),</span><br><span class="line">FULLTEXT 인덱스명 (인덱스컬럼),</span><br><span class="line">...</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>index prefix 생성<br>- 컬럼의 전체길이중 일부만 인덱스로 사용<br>- supported for ISAM, MyISAM, HEAP, and BDB tables, but not for InnoDB tables<br>- 지정되는 길이는 byte단위가 아닌 charater단위이므로, multi-byte character일 경우 주의<br>- blob, text 컬럼타입일 경우, index prefix 가 유용(255 길이까지 가능)<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 테이블명</span><br><span class="line">(</span><br><span class="line"><span class="keyword">name</span> <span class="built_in">CHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">address <span class="built_in">CHAR</span>(<span class="number">60</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line"><span class="keyword">INDEX</span> (<span class="keyword">name</span>(<span class="number">10</span>),address(<span class="number">10</span>))</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<p>인덱스 삭제<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">INDEX</span> 인덱스명 <span class="keyword">ON</span> 테이블명;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">DROP</span> <span class="keyword">INDEX</span> 인덱스명;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> 테이블명 <span class="keyword">DROP</span> PRIMARY <span class="keyword">KEY</span>;</span><br></pre></td></tr></table></figure></p>
+<p>OUTER JOIN<br>[MySQL]<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">left outer joing : <span class="keyword">SELECT</span> t1.*, t2.* <span class="keyword">FROM</span> t1 <span class="keyword">LEFT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> t2 <span class="keyword">ON</span> t1.i1 = t2.i2;</span><br><span class="line">right outer joing: <span class="keyword">SELECT</span> t1.*, t2.* <span class="keyword">FROM</span> t1 <span class="keyword">RIGHT</span> <span class="keyword">OUTER</span> <span class="keyword">JOIN</span> t2 <span class="keyword">ON</span> t1.i1 = t2.i2;</span><br></pre></td></tr></table></figure></p>
+<p>[Oracle]<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">left outer joing : <span class="keyword">SELECT</span> t1.*, t2.* <span class="keyword">FROM</span> t1, t2 <span class="keyword">where</span> t1.i1 = t2.i2(+);</span><br><span class="line">right outer joing: <span class="keyword">SELECT</span> t1.*, t2.* <span class="keyword">FROM</span> t1, t2 <span class="keyword">where</span> t1.i1(+) = t2.i2;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">student.name, student.student_id,</span><br><span class="line">event.date, event.event_id, event.type</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">student, <span class="keyword">event</span></span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> score <span class="keyword">ON</span> student.student_id = score.student_id</span><br><span class="line"><span class="keyword">AND</span> event.event_id = score.event_id</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">score.score <span class="keyword">IS</span> <span class="literal">NULL</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br><span class="line">student.student_id, event.event_id;</span><br></pre></td></tr></table></figure>
+<p><strong>문장을 이용한 변수의 설정</strong><br>현재 moyiza의 데이터베이스강좌게시판에 등록된 총 게시물은 43개이다. 43개의 강좌를 읽은 수(hit수)는 각각 다르다.<br>평균 hit수를 구해 보자.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select @total_hit := sum(hit), @total_record := count(*) from zetyx_board_database;</span><br><span class="line">+------------------------+---------------------------+</span><br><span class="line">| @total_hit := sum(hit) | @total_record := count(*) |</span><br><span class="line">+------------------------+---------------------------+</span><br><span class="line">| 3705 | 43 |</span><br><span class="line">+------------------------+---------------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; select @total_hit/@total_record as 평균HIT;</span><br><span class="line">+-----------------+</span><br><span class="line">| 평균HIT |</span><br><span class="line">+-----------------+</span><br><span class="line">| 86.162790697674 |</span><br><span class="line">+-----------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">substring</span>(subject <span class="keyword">from</span> <span class="number">9</span>) <span class="keyword">from</span> zetyx_board_database <span class="keyword">where</span> <span class="keyword">substring</span>(subject, <span class="number">1</span>, <span class="number">8</span>) = <span class="string">'[ORACLE]'</span>;</span><br></pre></td></tr></table></figure>
+<p>보통 상용DBMS들이 row-level locking을 지원한다. 쉽게 말해 레코드단위로 락킹한다는 말이다.<br>반면, MySQL의 MyISAM 테이블타입은 table-level locking을 사용한다.<br>쉽게 말하면, insert, update, delete작업은 전체 테이블에 락을 걸고 처리된다는 것이다.<br>row-level락보다 비효율적이지만,.. MySQL은 빠르기 때문에 이 단점이 상쇄된다.</p>
+<p>Compressed MyISAM(packed MyISAM)<br>정적인 테이블데이터는 압축하여 20-60%정도의 공간을 절약할 수 있다.<br>Production데이터를 CD로 받아서 차후 디스크에 풀지 않고 CD자체로 바로 사용할 수도 있다.<br>gzip등으로 백업받으면 이를 푸는 과정이 필요할 것이다.<br>% myisampack moyiza.myi  </p>
+<p>데이터베이스 게시판의 Merge Table에 좀 더 자세한 내용을 적어 두었다.</p>
+<p>RAID Table<br>1개의 테이블은 OS상에 3개의 파일로 구성된다.<br>스키마파일(.frm), data파일(.myd), index파일(.myi)<br>MySQL의 RAID테이블은 데이터파일(.myd)을 여러개의 파일들로 구성하는 것이다.</p>
+<p>create table raid_test (…)<br>type=myisam raid_type=striped raid_chunks=4 raid_chunsize=8</p>
+<p>테이블을 4개의 데이터파일로 나누고, 8kb단위로(8kb stripe) 라운드로빈 방식으로 write가 이루어진다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://yeop-blog.github.io/2017/09/30/2017-09-30-old-blog-post32/" data-id="cjt7cw35d00c5pol86dkq8zi4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Yeop&#39;s"
+        },
+        "headline": "자주 쓰는 MySQL 명령어 정리",
+        "image": "https://yeop-blog.github.io/images/mysql_thumbnail.jpg",
+        "keywords": "",
+        "genre": "DB MySQL",
+        "datePublished": "2017-09-30",
+        "dateCreated": "2017-09-30",
+        "dateModified": "2019-03-12",
+        "url": "https://yeop-blog.github.io/2017/09/30/2017-09-30-old-blog-post32/",
+        "description": "# root암호설정 - root로 로그인하여 해야함% mysqladmin -u root password ‘변경암호’% mysqladmin -u root -p기존암호 password ‘변경암호’  
+root암호변경설정PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !This is done with:/us"
+        "wordCount": 2587
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/sungyeop.jung" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/sungyeopjung/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/seirian" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="https://yeop-blog.github.io/atom.xml" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/09/30/2017-09-30-old-blog-post33/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            DB LOCK 걸린것을 확인하는 쿼리문
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/09/30/2017-09-30-old-blog-post31/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">태요군의 자바스크립트 강의</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post99/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/tip_thumbnail.jpg)" alt="ssh서버가 비밀번호를 거부했습니다. 다시 시도하십시오." class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tip-s/">Tip's</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post99/" class="title">ssh서버가 비밀번호를 거부했습니다. 다시 시도하십시오.</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:22:18.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post98/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/mssql_thumbnail.jpg)" alt="MSSQL IDENTITY값(시퀀스) 초기화" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DB/">DB</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DB/MSSQL/">MSSQL</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post98/" class="title">MSSQL IDENTITY값(시퀀스) 초기화</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:16:09.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post97/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/javascript_thumbnail.jpg)" alt="window.onload 대신 사용 가능한 jQuery, javascript 함수" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post97/" class="title">window.onload 대신 사용 가능한 jQuery, javascript 함수</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:12:07.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post96/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/tip_thumbnail.jpg)" alt="Windows 에서도 tail 명령어를!!" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Tip-s/">Tip's</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post96/" class="title">Windows 에서도 tail 명령어를!!</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:08:58.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/10/02/2017-10-02-old-blog-post95/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/lang_thumbnail.jpg)" alt="input 필드에 숫자만 입력받기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Language/">Language</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Language/HTML/">HTML</a></p>
+                            <p class="item-title"><a href="/2017/10/02/2017-10-02-old-blog-post95/" class="title">input 필드에 숫자만 입력받기</a></p>
+                            <p class="item-date"><time datetime="2017-10-02T06:06:10.000Z" itemprop="datePublished">2017-10-02</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Ani/">Ani</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/">DB</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DB/Etc/">Etc</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/MSSQL/">MSSQL</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/MySQL/">MySQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DB/Oracle/">Oracle</a><span class="category-list-count">6</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Framework/">Framework</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Framework/Spring/">Spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Framework/iBatis/">iBatis</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/">Language</a><span class="category-list-count">45</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Language/HTML/">HTML</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/JSP/">JSP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/Java/">Java</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Language/JavaScript/">JavaScript</a><span class="category-list-count">17</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Doodle/">Doodle</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Game-s/">Game's</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Goal/">Goal</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/Health/">Health</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/">Programming</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/IDE-s/">IDE's</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Server/">Server</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Server/Apache-Tomcat/">Apache/Tomcat</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Study/">Study</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tip-s/">Tip's</a><span class="category-list-count">23</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">58</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a><span class="archive-list-count">42</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">June 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/12/">December 2012</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Yeop&#39;s</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://yeop-blog.github.io/2017/09/30/2017-09-30-old-blog-post32/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
